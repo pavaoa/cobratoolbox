@@ -149,6 +149,11 @@ global ILOG_CPLEX_PATH;
 if ~exist('unchecked' , 'var')
     unchecked = 0;
 end
+
+if nargin < 3
+    printLevel = 1;
+end
+
 if unchecked
     switch solverType
         case 'LP'
@@ -230,10 +235,6 @@ if nargin < 2
     solverType = 'LP';
 else
     solverType = upper(solverType);
-end
-
-if nargin < 3
-    printLevel = 1;
 end
 
 % print an error message if the solver is not supported
